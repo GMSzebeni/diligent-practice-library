@@ -20,6 +20,17 @@ export class Library {
         this.books.push(book);
         return book;
     }
+
+    public search(searchText: Partial<Pick<Book, 'title' | 'author' | 'ISBN' | 'genre'>>): Book[] {
+        return this.books.filter(book => {
+            return (
+                (!searchText.title || book.title.toLowerCase().includes(searchText.title.toLowerCase())) &&
+                (!searchText.author || book.author.toLowerCase().includes(searchText.author.toLowerCase())) &&
+                (!searchText.ISBN || book.ISBN.toLowerCase().includes(searchText.ISBN.toLowerCase())) &&
+                (!searchText.genre || book.genre.toLowerCase().includes(searchText.genre.toLowerCase()))
+            )
+        });
+    }
 }
 
 
