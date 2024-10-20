@@ -1,5 +1,5 @@
 import { User } from "./user";
-import { Rating } from "../types/index";
+import { Rating } from "../types/type";
 
 export class Book {
     private _id: number;

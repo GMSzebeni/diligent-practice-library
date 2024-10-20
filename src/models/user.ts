@@ -1,5 +1,5 @@
 import { Book } from "./book";
-import { MembershipType } from "../types/index";
+import { MembershipType } from "../types/type";
 
 export class User {
     private _id: number;
