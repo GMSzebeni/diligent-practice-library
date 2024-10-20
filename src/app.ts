@@ -1,7 +1,21 @@
-import fastify from 'fastify';
+import { AppError } from "./errors/app-error";
+import { Library } from "./models/library";
+import { Book } from "./models/book";
 
-export default function createApp(options = {}) {
-    const app = fastify(options);
+export function createApp() {
+    const library = new Library();
 
-    return app;
+    try {
+        library.add(new Book(
+            "Coding with Me",
+            "Jim Smith",
+            "Great Publisher Inc.",
+            2020,
+            123456789,
+            "science",
+            "Hungarian"
+        ))
+    } catch {
+        throw new AppError("Book could not be added.")
+    }
 }
