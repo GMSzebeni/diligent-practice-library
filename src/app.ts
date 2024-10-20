@@ -6,7 +6,7 @@ export function createApp() {
     const library = new Library();
 
     try {
-        library.add(new Book(
+        const book = library.add(new Book(
             "Coding with Me",
             "Jim Smith",
             "Great Publisher Inc.",
@@ -15,7 +15,12 @@ export function createApp() {
             "science",
             "Hungarian"
         ))
-    } catch {
-        throw new AppError("Book could not be added.")
+        console.log("The book has been added to the library: ", book);
+    } catch(error) {
+        if (error instanceof AppError) {
+            console.error("AppError:", error.message);
+        } else {
+            console.error("Unexpected error:", error);
+        }
     }
 }
