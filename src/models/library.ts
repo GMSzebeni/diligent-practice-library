@@ -41,19 +41,25 @@ export class Library {
     }
 
     public lend(bookTitle: string, userEmail: string): string {
-        const bookToLend = this.books.find(book => book.title === bookTitle);
+        const bookToLend = this.books.find(book => book.title === bookTitle && book.availability);
         const userToLendTo = this.users.find(user => user.email === userEmail);
         if (bookToLend && userToLendTo) {
             userToLendTo.addToBorrowedBooks(bookToLend);
-            this.books.splice(this.books.indexOf(bookToLend), 1);
-            return `Book "${bookToLend.title}" has been lent to user "${userToLendTo.name} (${userToLendTo.email})"`
+            bookToLend.availability = false;
+            bookToLend.borrowedDate = new Date;
+            bookToLend.borrower = userToLendTo;
+            return `Book "${bookToLend.title} (${bookToLend.id})" has been lent to user "${userToLendTo.name} (${userToLendTo.email})"`
         } else if (!bookToLend) {
-            throw new AppError(`A book with the title "${bookTitle}" was not found in the libraray database.`)
+            throw new AppError(`A book with the title "${bookTitle}" is not available or was not found in the libraray database.`)
         } else if (!userToLendTo) {
             throw new AppError(`There is no such user in the library database: ${userEmail}`)
         } else {
             throw new AppError('Book could not be lent.')
         }
+    }
+
+    public return(bookId: number, userEmail: string) {
+
     }
 }
 
