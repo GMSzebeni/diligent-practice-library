@@ -16,7 +16,7 @@ export function createApp() {
             "science",
             "Hungarian"
         ));
-        console.log(`${book1.title} has been added to the library.`);
+        console.log(`${(book1 as Book).title} has been added to the library.`);
 
         const book2 = library.add(new Book(
             "To Kill a Mockingbird",
@@ -27,7 +27,7 @@ export function createApp() {
             "fiction",
             "English"
         ));
-        console.log(`${book2.title} has been added to the library.`);
+        console.log(`${(book2 as Book).title} has been added to the library.`);
 
         const book3 = library.add(new Book(
             "A legnagyszerűbb könyv a nárcizmusról",
@@ -38,7 +38,7 @@ export function createApp() {
             "non-fiction",
             "Hungarian"
         ));
-        console.log(`${book3.title} has been added to the library.`);
+        console.log(`${(book3 as Book).title} has been added to the library.`);
 
         const booksFoundByTitle = library.search(
             {
@@ -66,14 +66,14 @@ export function createApp() {
             "carol@dubbing.com",
             "free"
         ));
-        console.log(`${user1.name} (${user1.email}) has been added to the library.`);
+        console.log(`${(user1 as User).name} (${(user1 as User).email}) has been added to the library.`);
 
         const user2 = library.add(new User(
             "Trevor Parsons",
             "trevor@parsons.com",
             "premium"
         ));
-        console.log(`${user2.name} (${user2.email}) has been added to the library.`);
+        console.log(`${(user2 as User).name} (${(user2 as User).email}) has been added to the library.`);
 
         console.log(library.lend("A legnagyszerűbb könyv a nárcizmusról", "trevor@parsons.com"));
     } catch(error) {

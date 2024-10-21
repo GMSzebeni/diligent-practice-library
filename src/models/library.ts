@@ -16,8 +16,6 @@ export class Library {
         return maxId + 1;
     }
 
-    public add(item: Book): Book;
-    public add(item: User): User;
     public add(item: Book | User) {
         if (item instanceof Book) {
             item.id = this.nextId(this.books);
