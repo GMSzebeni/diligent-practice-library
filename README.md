@@ -19,12 +19,12 @@ Generate library statistics (most borrowed books, most popular genres, etc.)
 
 ## Types to use:
 Record: Create a book record with many properties.
-Partial: When adding a new book, not all fields are required.
-Readonly: Make the book's ISBN read-only.
-Pick: Display only the title and author of a book in a list.
+used it but differently - Partial: When adding a new book, not all fields are required.
+done - Readonly: Make the book's ISBN read-only.
+used it but differently - Pick: Display only the title and author of a book in a list.
 Omit: Exclude the borrower-related information when listing all books.
 Exclude: Filter books by genre from a union type representing all library items.
-NonNullable: Ensure that a book's title is not null or undefined.
+done - NonNullable: Ensure that a book's title is not null or undefined.
 Parameters and ReturnType: Create a function to format book details as a string.
 InstanceType: Create a Library class and use InstanceType to get its instance type.
 ThisType: In a method that modifies a book, ensure this refers to a Library instance.
