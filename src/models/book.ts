@@ -54,7 +54,23 @@ export class Book {
 		return this._genre;
 	}
 
-    public set id(value: number) {
+	public get availability(): boolean {
+		return this._availability;
+	}
+
+	public set id(value: number) {
         this._id = value;
     }
+
+	public set borrowedDate(value: Date ) {
+		this._borrowedDate = value;
+	}
+
+	public set borrower(value: User ) {
+		this._borrower = value;
+	}
+
+	public set availability(value: boolean) {
+		this._availability = value;
+	}
 }
