@@ -1,6 +1,7 @@
 import { AppError } from "./errors/app-error";
 import { Library } from "./models/library";
 import { Book } from "./models/book";
+import { User } from "./models/user";
 
 export function createApp() {
     const library = new Library();
@@ -60,6 +61,21 @@ export function createApp() {
         );
         console.log(`Books found by author:\n${booksFoundByAuthor.map(book => book.title).join(', ')}`);
 
+        const user1 = library.add(new User(
+            "Carol Dubbing",
+            "carol@dubbing.com",
+            "free"
+        ));
+        console.log(`${user1.name} (${user1.email}) has been added to the library.`);
+
+        const user2 = library.add(new User(
+            "Trevor Parsons",
+            "trevor@parsons.com",
+            "premium"
+        ));
+        console.log(`${user2.name} (${user2.email}) has been added to the library.`);
+
+        console.log(library.lend("A legnagyszerűbb könyv a nárcizmusról", "trevor@parsons.com"));
     } catch(error) {
         if (error instanceof AppError) {
             console.error("AppError:", error.message);
