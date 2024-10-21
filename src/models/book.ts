@@ -3,11 +3,11 @@ import { Rating, Genres } from "../types/type";
 
 export class Book {
     private _id: number;
-    private _title: string;
+    private _title: NonNullable<string>;
     private _author: string;
     private _publisher: string;
     private _publicationYear: number;
-    private _ISBN: string;
+    private readonly _ISBN: string;
     private _availability: boolean;
     private _borrower: User | null;
     private _borrowedDate: Date | null;
