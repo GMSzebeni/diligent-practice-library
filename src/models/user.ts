@@ -20,4 +20,28 @@ export class User {
         this._membershipType = membershipType;
 		this._joinedDate = new Date();
 	}
+
+    public get id(): number {
+        return this._id;
+    }
+
+    public get name(): string {
+        return this._name;
+    }
+
+    public get email(): string {
+        return this._email;
+    }
+
+	public get borrowedBooks(): Book[] {
+		return this._borrowedBooks;
+	}
+
+	public set id(value: number) {
+		this._id = value;
+	}
+
+	public addToBorrowedBooks(value: Book) {
+        this._borrowedBooks.push(value);
+    }
 }
